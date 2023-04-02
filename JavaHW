@@ -1,0 +1,55 @@
+package basic.homeworks;
+
+import java.util.Scanner;
+
+public class FourthHomework {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите название фигуры (треугольник, круг, прямоугольник): ");
+        String figureName = scanner.nextLine();
+        checkfigure(figureName);
+    }
+
+    private static void checkfigure(String figureName) {
+        if (figureName.equals("треугольник")) {
+            triangle();
+        } else if (figureName.equals("круг")) {
+            circle();
+        } else if (figureName.equals("прямоугольник")) {
+            rectangle();
+        } else {
+            System.out.println("Неизвестное название фигуры!");
+        }
+    }
+
+    private static void triangle() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите длину стороны a: ");
+        double a = scanner.nextDouble();
+        System.out.print("Введите длину стороны b: ");
+        double b = scanner.nextDouble();
+        System.out.print("Введите длину стороны c: ");
+        double c = scanner.nextDouble();
+        double p = (a + b + c) / 2;
+        double area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        System.out.printf("Площадь треугольника: %.2f", area);
+    }
+
+    private static void rectangle() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите длину стороны a: ");
+        double a = scanner.nextDouble();
+        System.out.print("Введите длину стороны b: ");
+        double b = scanner.nextDouble();
+        double area = a * b;
+        System.out.printf("Площадь прямоугольника: %.2f", area);
+    }
+
+    private static void circle() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите радиус: ");
+        double r = scanner.nextDouble();
+        double area = Math.PI * r * r;
+        System.out.printf("Площадь круга: %.2f", area);
+    }
+}
